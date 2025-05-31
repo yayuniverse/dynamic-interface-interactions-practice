@@ -1,3 +1,4 @@
+import globals from 'globals';
 import path from "node:path";
 
 import { includeIgnoreFile } from "@eslint/compat";
@@ -23,13 +24,6 @@ const jsConfig = [
   ...configs.base.recommended,
 ];
 
-const nodeConfig = [
-  // Node Plugin
-  plugins.node,
-  // Airbnb Node Recommended Config
-  ...configs.node.recommended,
-];
-
 const prettierConfig = [
   // Prettier Plugin
   {
@@ -49,6 +43,7 @@ const prettierConfig = [
 ];
 
 export default [
+  // Ignore the ESLint config file itself
   {
     ignores: ["eslint.config.mjs"],
   },
@@ -56,8 +51,17 @@ export default [
   includeIgnoreFile(gitignorePath),
   // Javascript Config
   ...jsConfig,
-  // Node Config
-  ...nodeConfig,
   // Prettier Config
   ...prettierConfig,
+  // Browser environment for source files
+  {
+    files: ["src/**/*.js"],
+    languageOptions: {
+      sourceType: "module",
+      ecmaVersion: "latest",
+      globals: {
+        ...globals.browser,
+      },
+    },
+  },
 ];
