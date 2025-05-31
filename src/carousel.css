@@ -1,0 +1,73 @@
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.scroll-frame {
+  height: 300px;
+  width: 500px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-radius: 8px;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.image-sequence {
+  display: flex;
+}
+
+.image-placeholder {
+  height: 300px;
+  width: 500px;
+  flex-shrink: 0;
+}
+
+.one {
+  background-color: darkorchid;
+}
+
+.two {
+  background-color: tomato;
+}
+
+.three {
+  background-color: olivedrab;
+}
+
+.four {
+  background-color: royalblue;
+}
+
+.five {
+  background-color: mistyrose;
+}
+
+.nav-wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-wrapper button {
+  background-color: rgba(216, 191, 216, 0.125);
+  border: 1px solid thistle;
+  color: thistle;
+}
+
+.dot-group {
+  display: flex;
+  gap: 16px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
