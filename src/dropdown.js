@@ -8,7 +8,6 @@ function makeDropdown(elementContainer) {
 
   button.addEventListener("click", toggleMenu);
 
-  // Add document click listener to close dropdown
   document.addEventListener("click", (e) => {
     if (
       menu.classList.contains("visible") &&
