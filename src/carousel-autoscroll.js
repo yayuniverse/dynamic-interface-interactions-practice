@@ -1,7 +1,7 @@
-function startCarousel(scrollIntervalMs = 5000, scrollsBeforeReset = 5) {
+function startCarousel(scrollIntervalMs = 5000, scrollsToReset = 5) {
   const scrollFrame = document.querySelector(".scroll-frame");
 
-  const resetIntervalMs = scrollIntervalMs * scrollsBeforeReset;
+  const resetIntervalMs = scrollIntervalMs * scrollsToReset;
 
   setInterval(() => {
     scrollFrame.scrollBy({
