@@ -3,6 +3,8 @@ import "./global.css";
 import "./dropdown.css";
 import makeDropdown from "./dropdown";
 import "./carousel.css";
-import "./carousel";
+import startCarousel from "./carousel-autoscroll";
 
 makeDropdown(document.querySelector(".dropdown-wrapper"));
+
+startCarousel();
