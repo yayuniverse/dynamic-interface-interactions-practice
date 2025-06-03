@@ -1,19 +1,30 @@
-function startCarousel(scrollIntervalMs = 5000, scrollsToReset = 5) {
-  const scrollFrame = document.querySelector(".scroll-frame");
+import scrollCount from "./carousel-scroll-state";
 
-  const resetIntervalMs = scrollIntervalMs * scrollsToReset;
+function autoIncreaseCount() {
+  const interval = setInterval(() => {
+    if (scrollCount.count === scrollCount.maxValue) {
+      scrollCount.reset();
+      console.log(scrollCount.count);
+    } else {
+      scrollCount.increase();
+      console.log(scrollCount.count);
+    }
+  }, 1000);
+  console.log(`IntervalID: ${interval}`);
 
-  setInterval(() => {
-    scrollFrame.scrollBy({
-      top: 0,
-      left: 500,
-      behavior: "smooth",
-    });
-  }, scrollIntervalMs);
-
-  setInterval(() => {
-    scrollFrame.scrollLeft = 0;
-  }, resetIntervalMs);
+  return interval;
 }
 
-export default startCarousel;
+let activeInterval = autoIncreaseCount();
+
+function debounceAutoIncrease() {
+  clearInterval(activeInterval);
+
+  setTimeout(() => {
+    activeInterval = autoIncreaseCount();
+  }, 5000);
+}
+
+export default debounceAutoIncrease;
+
+window.debounceAutoIncrease = debounceAutoIncrease;
