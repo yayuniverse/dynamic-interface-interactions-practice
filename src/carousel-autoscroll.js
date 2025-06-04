@@ -3,10 +3,10 @@ import scrollCount from "./carousel-scroll-state";
 function autoIncreaseCount() {
   const interval = setInterval(() => {
     scrollCount.autoIncrease();
-    console.log(scrollCount.count);
-  }, 1000);
+    // console.log(scrollCount.count);
+  }, 3000);
 
-  console.log(`IntervalID: ${interval}`);
+  // console.log(`IntervalID: ${interval}`);
 
   return interval;
 }
@@ -14,23 +14,18 @@ function autoIncreaseCount() {
 let activeInterval = autoIncreaseCount();
 let activeTimeout;
 
-function debounceAutoIncrease(newCount, source) {
+function debounceAutoIncrease(newCount, oldCount, source) {
   if (source !== "manual") {
     return;
   }
 
-  console.log(`Count: ${newCount}`);
+  // console.log(`Count: ${newCount}`);
   clearInterval(activeInterval);
   clearTimeout(activeTimeout);
 
   activeTimeout = setTimeout(() => {
     activeInterval = autoIncreaseCount();
-  }, 5000);
+  }, 2500);
 }
-// to fix: multiple intervals are created on triggering the timeout function multiple
-// times before the first one runs the code it contains so the latest timeout is the only one bound to activeInterval
-// while the others are not bound to anything but still running
 
 scrollCount.subscribe(debounceAutoIncrease);
-
-export default debounceAutoIncrease;
