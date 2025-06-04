@@ -25,7 +25,7 @@ function debounceAutoIncrease(newCount, oldCount, source) {
 
   activeTimeout = setTimeout(() => {
     activeInterval = autoIncreaseCount();
-  }, 2500);
+  }, 1500);
 }
 
 scrollCount.subscribe(debounceAutoIncrease);
