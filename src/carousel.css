@@ -55,9 +55,9 @@
 }
 
 .nav-wrapper button {
-  background-color: rgba(216, 191, 216, 0.125);
-  border: 1px solid thistle;
-  color: thistle;
+  background-color: rgba(245, 245, 245, 0.125);
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
 }
 
 .dot-group {
@@ -70,4 +70,8 @@
   height: 12px;
   border-radius: 50%;
   background-color: aliceblue;
+}
+
+.active-dot {
+  background-color: lightslategrey;
 }
