@@ -2,29 +2,28 @@ import scrollCount from "./carousel-scroll-state";
 
 function autoIncreaseCount() {
   const interval = setInterval(() => {
-    if (scrollCount.count === scrollCount.maxValue) {
-      scrollCount.autoReset();
-      console.log(scrollCount.count);
-    } else {
-      scrollCount.autoIncrease();
-      console.log(scrollCount.count);
-    }
+    scrollCount.autoIncrease();
+    console.log(scrollCount.count);
   }, 1000);
+
   console.log(`IntervalID: ${interval}`);
 
   return interval;
 }
 
 let activeInterval = autoIncreaseCount();
+let activeTimeout;
 
 function debounceAutoIncrease(newCount, source) {
   if (source !== "manual") {
     return;
   }
 
+  console.log(`Count: ${newCount}`);
   clearInterval(activeInterval);
+  clearTimeout(activeTimeout);
 
-  setTimeout(() => {
+  activeTimeout = setTimeout(() => {
     activeInterval = autoIncreaseCount();
   }, 5000);
 }
