@@ -10,6 +10,14 @@ const dotThree = document.querySelector(".dot3");
 const dotFour = document.querySelector(".dot4");
 const dotFive = document.querySelector(".dot5");
 
+const dots = [dotOne, dotTwo, dotThree, dotFour, dotFive];
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    scrollCount.setCount = index + 1;
+  });
+});
+
 function scrollFrameBy(scrollValue) {
   scrollFrame.scrollBy({
     top: 0,
