@@ -69,5 +69,4 @@ function createCounter() {
 }
 
 const scrollCount = createCounter();
-window.scrollCount = scrollCount;
 export default scrollCount;
