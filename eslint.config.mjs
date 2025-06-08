@@ -1,4 +1,4 @@
-import globals from 'globals';
+import globals from "globals";
 import path from "node:path";
 
 import { includeIgnoreFile } from "@eslint/compat";
@@ -57,10 +57,17 @@ export default [
   {
     files: ["src/**/*.js"],
     languageOptions: {
+      parser: "@babel/eslint-parser",
       sourceType: "module",
       ecmaVersion: "latest",
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          presets: ["@babel/preset-env"],
+        },
+      },
       globals: {
-        ...globals.browser,
+        ...globals.browser, // This adds browser globals like document, window, etc.
       },
     },
   },
