@@ -13,8 +13,8 @@
     "lint:fix": "eslint src/ --fix"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Oye Sobowale",
+  "license": "MIT",
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.1",
     "@phosphor-icons/web": "^2.1.1"
