@@ -24,6 +24,13 @@ const jsConfig = [
   ...configs.base.recommended,
 ];
 
+const nodeConfig = [
+  // Node Plugin
+  plugins.node,
+  // Airbnb Node Recommended Config
+  ...configs.node.recommended,
+];
+
 const prettierConfig = [
   // Prettier Plugin
   {
@@ -45,12 +52,14 @@ const prettierConfig = [
 export default [
   // Ignore the ESLint config file itself
   {
-    ignores: ["eslint.config.mjs"],
+    ignores: ["eslint.config.mjs", "webpack.*.js"],
   },
   // Ignore .gitignore files/folder in eslint
   includeIgnoreFile(gitignorePath),
   // Javascript Config
   ...jsConfig,
+    // Node Config
+  ...nodeConfig,
   // Prettier Config
   ...prettierConfig,
   // Browser environment for source files
